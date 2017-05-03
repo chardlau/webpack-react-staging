@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './public/index.js',
+  entry: './src/index.js',
   output: {
     filename: 'out.js',
     path: path.resolve(__dirname, 'public')
