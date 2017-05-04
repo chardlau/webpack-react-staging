@@ -1,7 +1,12 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
+    './src/index.js'
+  ],
   output: {
     filename: 'out.js',
     path: path.resolve(__dirname, 'public')
@@ -15,7 +20,10 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['es2015', 'react', 'env'],
-            plugins: [['import', {"libraryName": "antd", "style": "css"}]]
+            plugins: [
+              ['react-hot-loader/babel'],
+              ['import', {"libraryName": "antd", "style": "css"}]
+            ]
           }
         }
       },
@@ -25,4 +33,8 @@ module.exports = {
       }
     ],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
 };
