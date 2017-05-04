@@ -1,6 +1,6 @@
 import React from 'react';
 
-const COUNT_STEP = 10;
+const COUNT_STEP = 1;
 
 export default class Counter extends React.Component {
 
@@ -18,7 +18,9 @@ export default class Counter extends React.Component {
   }
 
   handleTimeoutEvent() {
-    this.setState({value: this.state.value + COUNT_STEP}, () => {
+    this.setState((prevState, props) => ({
+      value: prevState.value + COUNT_STEP
+    }), () => {
       this.timeout = setTimeout(this.handleTimeoutEvent.bind(this), 1000);
     });
   }
@@ -26,7 +28,7 @@ export default class Counter extends React.Component {
   render() {
     return (
       <div>
-        <p> This is a counter1: {this.state.value} </p>
+        <p> This is a counter: {this.state.value} </p>
       </div>
     );
   }
