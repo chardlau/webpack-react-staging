@@ -3,6 +3,7 @@ import React from 'react';
 const COUNT_STEP = 1;
 
 export default class Counter extends React.Component {
+  static protoTypes = {};
 
   constructor(props) {
     super(props);

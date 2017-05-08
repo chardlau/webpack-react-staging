@@ -19,7 +19,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react', 'env'],
+            presets: ['env', 'stage-0','react'],
             plugins: [
               ['react-hot-loader/babel'],
               ['import', {"libraryName": "antd", "style": "css"}]
