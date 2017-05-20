@@ -6,11 +6,14 @@ import {
 } from 'react-router-dom';
 import Counter from './Counter';
 
+import styles from './BasicExample-m.css';
+
 export default class BasicExample extends React.Component {
   render() {
     return (
       <Router>
         <div>
+          <p className={styles.red}>Red Text</p>
           <ul>
             <li><Link to="/">Home122</Link></li>
             <li><Link to="/topics">Topics</Link></li>
