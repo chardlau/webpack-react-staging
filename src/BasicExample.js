@@ -4,9 +4,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Counter from './Counter';
 
 import styles from './BasicExample-m.css';
+import AsyncLoader from "./AsyncLoader";
 
 export default class BasicExample extends React.Component {
   render() {
@@ -22,7 +22,7 @@ export default class BasicExample extends React.Component {
           <hr/>
           <Route exact path="/" component={Home}/>
           <Route path="/topics" component={Topics}/>
-          <Route path="/counter" component={Counter}/>
+          <Route path="/counter" render={() => <AsyncLoader path="Counter.js"/>}/>
         </div>
       </Router>
     );

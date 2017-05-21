@@ -10,6 +10,9 @@ ReactDOM.render(
   document.getElementById('main')
 );
 
+import $ from 'jquery';
+$('body').append('<p>Hello vendor</p>');
+
 if (module.hot) {
   module.hot.accept();
 }

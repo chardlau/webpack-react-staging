@@ -3,13 +3,15 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    './src/index.js'
-  ],
+  entry: {
+    main:[
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client',
+      './src/index.js'
+    ]
+  },
   output: {
-    filename: 'out.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
@@ -59,6 +61,16 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module) {
+          // TODO 对其他第三方依赖也要在这里进行代码分割
+          return module.context && module.context.indexOf('jquery') !== -1;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
+    })
   ]
 };
