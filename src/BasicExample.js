@@ -8,10 +8,12 @@ import {
 import styles from './BasicExample-m.css';
 import AsyncLoader from "./AsyncLoader";
 
+import config from '../config/index.js';
+
 export default class BasicExample extends React.Component {
   render() {
     return (
-      <Router>
+      <Router basename={config.publicPath}>
         <div>
           <p className={styles.red}>Red Text</p>
           <ul>

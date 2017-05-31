@@ -1,5 +1,6 @@
 .git
 .idea
+dist
 node_modules
 public/out.js
 

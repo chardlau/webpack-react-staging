@@ -37,7 +37,7 @@ export default class AsyncLoader extends React.Component {
     this.setState({module: props.loading});
 
     // TODO：异步代码的路径希望做成可以配置的方式
-    import(`./${props.path}`)
+    import(`ASYNC/${props.path}`)
       .then((m) => {
         let Module = m.default ? m.default : m;
         console.log("module: ", Module);
