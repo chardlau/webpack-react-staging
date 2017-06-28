@@ -2,5 +2,5 @@
 .idea
 dist
 node_modules
-public/out.js
+npm-debug.log
 

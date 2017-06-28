@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -47,7 +48,7 @@ module.exports = {
                             options: {
                                 modules: true,
                                 importLoaders: 3,
-                                localIdentName: '[path][name]-[local]-[hash:base64:5]'
+                                localIdentName: '[name]-[local]-[hash:base64:5]'
                             }
                         },
                         {
@@ -80,7 +81,7 @@ module.exports = {
                             options: {
                                 modules: true,
                                 importLoaders: 1,
-                                localIdentName: '[path][name]-[local]-[hash:5]'
+                                localIdentName: '[name]-[local]-[hash:5]'
                             }
                         },
                         {

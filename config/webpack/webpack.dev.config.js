@@ -17,7 +17,8 @@ module.exports = {
     output: {
         filename: '[name].[hash:8].js',
         chunkFilename: 'chunk.[id].[hash:8].js',
-        path: config.publicPath
+        path: config.staticPath,
+        publicPath: config.publicPath
     },
     module: {
         rules: [
@@ -48,7 +49,7 @@ module.exports = {
                             options: {
                                 modules: true,
                                 importLoaders: 3,
-                                localIdentName: '[path][name]-[local]-[hash:base64:5]'
+                                localIdentName: '[name]-[local]-[hash:base64:5]'
                             }
                         },
                         {
@@ -81,7 +82,7 @@ module.exports = {
                             options: {
                                 modules: true,
                                 importLoaders: 1,
-                                localIdentName: '[path][name]-[local]-[hash:5]'
+                                localIdentName: '[name]-[local]-[hash:5]'
                             }
                         },
                         {
